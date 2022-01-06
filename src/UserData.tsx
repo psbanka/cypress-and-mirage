@@ -39,8 +39,9 @@ export default function UserData() {
   return (
     <div>
       <ul>
+        {data.length === 0 && (<p data-testid="no-users">No users</p>)}
         {data.map((user: any) => (
-          <li key={user.id}>
+          <li data-testid={`user-${user.id}`} key={user.id}>
             {user.attributes.name}
           </li>
         ))}

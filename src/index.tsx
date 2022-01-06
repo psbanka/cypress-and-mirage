@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 
 // @ts-ignore
 if (window.Cypress) {
-  console.log('>>>>>>>>>>>>>> WINDOW CYPRESS')
+  console.log('Cypress detected, setting up proxy')
   // If your app makes requests to domains other than / (the current domain), add them
   // here so that they are also proxied from your app to the handleFromCypress function.
   // For example: let otherDomains = ["https://my-backend.herokuapp.com/"]
@@ -22,9 +22,9 @@ if (window.Cypress) {
     routes() {
       for (const domain of ["/", ...otherDomains]) {
         for (const method of methods) {
-	  // @ts-ignore
+          // @ts-ignore
           this[method](`${domain}*`, async (schema, request) => {
-	    // @ts-ignore
+            // @ts-ignore
             let [status, headers, body] = await window.handleFromCypress(
               request
             )
@@ -39,8 +39,8 @@ if (window.Cypress) {
   })
 }
 
-if (process.env.NODE_ENV === "development") {
-  console.log('MIRAGE MODE ENABLED -----------------------')
+if (process.env.REACT_APP_ENVIRONMENT === "development") {
+  console.log('MIRAGE MODE ENABLED -----------------------', process.env.NODE_ENV)
   makeServer({ environment: "development" })
 }
 

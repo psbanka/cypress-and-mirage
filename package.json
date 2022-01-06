@@ -18,11 +18,11 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env REACT_APP_ENVIRONMENT=test react-scripts start",
     "test": "react-scripts test",
     "start-mirage": "cross-env REACT_APP_ENVIRONMENT=development react-scripts start",
     "build": "cross-env REACT_APP_ENVIRONMENT=production react-scripts build",
-    "cypress:open": "cross-env REACT_APP_ENVIRONMENT=test cypress open",
+    "cypress:open": "cypress open",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

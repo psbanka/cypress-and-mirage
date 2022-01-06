@@ -14,6 +14,7 @@ export function makeServer({ environment = "test" } = {}) {
     },
 
     seeds(server) {
+      console.log("---------------------- SETTING UP THE SEEDS!")
       server.create("user", { name: "Bob" })
       server.create("user", { name: "Alice" })
     },
